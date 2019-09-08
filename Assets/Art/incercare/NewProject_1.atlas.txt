@@ -1,0 +1,13 @@
+
+NewProject_1.png
+size: 128,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Enemy
+  rotate: false
+  xy: 1, 1
+  size: 74, 187
+  orig: 74, 187
+  offset: 0, 0
+  index: -1
