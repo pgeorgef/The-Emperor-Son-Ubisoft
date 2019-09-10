@@ -98,10 +98,15 @@ MonoBehaviour:
   script: {fileID: 0}
   distanceHit: 0
   orientation: 0
+  soundManager: {fileID: 0}
+  hitSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  jump: {fileID: 0}
+  deathParticles: {fileID: 0}
   playerMask:
     serializedVersion: 2
     m_Bits: 16384
-  playerObject: {fileID: 0}
+  distanceAttackRangeDetect: 0
 --- !u!212 &5697832118787859512
 SpriteRenderer:
   m_ObjectHideFlags: 0

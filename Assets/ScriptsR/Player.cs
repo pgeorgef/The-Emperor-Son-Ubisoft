@@ -75,9 +75,6 @@ public class Player : Character
             Teleport();
             teleportTime = Time.time + teleportCooldown;
             teleportBarTime = 0;
-           // Debug.Log(rb.velocity.y);
-            //if (rb.velocity.y == 0)
-            //StartCoroutine(teleportBarTimer());
             StartCoroutine(timer());
             
         }
@@ -100,7 +97,6 @@ public class Player : Character
         }
        /* if (Input.GetMouseButtonDown(1))
         {
-          //  Debug.Log("da ba");
             //Rigidbody2D rangedBullet;
             
             //rangedBullet = Instantiate(Enemy);
@@ -119,7 +115,7 @@ public class Player : Character
                    specialStart = Time.time + specialCooldown;
                    AttackDetectHit();
                }
-           } to do */
+           } to do special attack */
     }
     IEnumerator timer()
     {

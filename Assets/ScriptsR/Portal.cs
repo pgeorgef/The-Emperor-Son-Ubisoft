@@ -20,7 +20,6 @@ public class Portal : MonoBehaviour
     {
         if (col.gameObject == GameObject.Find("Player 1").gameObject)
         {
-            Debug.Log("portal");
             SceneManager.LoadScene("UpSideDown");
 
         }

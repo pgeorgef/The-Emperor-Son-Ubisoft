@@ -20,8 +20,6 @@ public class BossEnter : MonoBehaviour
     {
         if (col.gameObject == GameObject.Find("Player 1").gameObject)
         {
-            Debug.Log("a intrat in boss");
-            // GetComponentInChildren<Canvas>().gameObject.SetActive(true);
             bossImage.enabled = true;
             Time.timeScale = 0.0001f;
             StartCoroutine(timer());

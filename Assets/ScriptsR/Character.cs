@@ -54,23 +54,10 @@ public class Character : MonoBehaviour
     public virtual void Update()
     {
         healthBar[1].fillAmount = health / maxhealth;
-      //  Debug.Log(healthBar[1].fillAmount);
-       // Debug.Log(health + " " + maxhealth);
+
     }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
 
-        /*  if (rb.velocity.y < 0 && !CheckRaycast(1f,Vector2.down, groundLayer))
 
-              if (CheckRaycast(2f,Vector2.down, groundLayer))
-                  animator.SetTrigger("Land");*/
-        /*   if (teleporting == 1)
-           {
-               SlashAttack();
-
-           }*/
-    }
 
     public RaycastHit2D CheckRaycast(float distance, Vector2 orientation, LayerMask layer)
     {
@@ -79,16 +66,6 @@ public class Character : MonoBehaviour
 
         RaycastHit2D ground = Physics2D.Raycast(this.transform.position, orientation, distance, layer);
 
-        /* if (ground.collider != null)
-         {
-             return true;
-            // Debug.Log("atinge");
-         }
-         else
-         {
-             //Debug.Log("atingen't");
-             return false;
-         }*/
         return ground;
     }
 
@@ -152,55 +129,25 @@ public class Character : MonoBehaviour
         Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(attackPos.position, attackRange, toHit);
         for (int i = 0; i < enemiesToHit.Length; i++)
         {
-
-
-
             distanceHit = gameObject.transform.position.x - enemiesToHit[i].gameObject.transform.position.x;
 
-            // Debug.Log(direction + "orientare");
             if (enemiesToHit[i].gameObject.CompareTag("Inamic"))
             {
 
-                //distanceHit = enemiesToHit[i].gameObject.GetComponent<Enemy>().transform.position.x;
-                //  distanceHit = tr.position.x - distanceHit;
-                // Debug.Log(distanceHit + " distanta");
                 enemiesToHit[i].gameObject.GetComponent<Enemy>().Hit(distanceHit, damage);
-                //  HealthBarScript.health -= damage;
-                // Debug.Log("Ia damage");
+
             }
             if (enemiesToHit[i].gameObject.CompareTag("Playerg"))
             {
-                //distanceHit = enemiesToHit[i].gameObject.GetComponent<Player>().transform.position.x;
-                //distanceHit = tr.position.x - distanceHit;
+
                 enemiesToHit[i].gameObject.GetComponent<Player>().Hit(distanceHit, damage);
-                //   HealthBarScript.health -= damage;
-                // Debug.Log("Player ia damage");
             }
             if (enemiesToHit[i].gameObject.CompareTag("Box"))
                 enemiesToHit[i].gameObject.GetComponent<ExplodingBox>().Hit(distanceHit, damage);
-            // To do, enemy damage cutie 
+
         }
     }
-    /* public void SlashAttack()
-     {
-         Debug.Log("in detectie");
-         Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(attackPos.position, attackRange, toHit);
-         for (int i = 0; i < enemiesToHit.Length; i++)
-         {
 
-             Debug.Log("Ia damage");
-             if (enemiesToHit[i].gameObject.CompareTag("Inamic"))
-             {
-
-                 distanceHit = enemiesToHit[i].gameObject.GetComponent<Enemy>().transform.position.x;
-                 distanceHit = tr.position.x - distanceHit;
-                 enemiesToHit[i].gameObject.GetComponent<Enemy>().Hit(distanceHit, damage);
-                 break;
-                 // Debug.Log("Ia damage");
-             }
-
-         }
-     }*/
     public void VerticalAttack()
     {
         if (CheckRaycast(1f, Vector2.up, toHit).collider != null)
@@ -237,24 +184,15 @@ public class Character : MonoBehaviour
 
         if (distancehit < 0)
         {
-            rb.AddForce(new Vector2(6, 3), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(7, 3), ForceMode2D.Impulse);
         }
         if (distancehit > 0)
         {
-            rb.AddForce(new Vector2(-6, 3), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-7, 3), ForceMode2D.Impulse);
 
 
         }
         animator.SetBool("Hurt", true);
-
-        //  if (distancehit < 0)
-        //   rb.AddForce(new Vector2(13, 5), ForceMode2D.Impulse);
-        //tr.position.x = transform.position
-        //rb.velocity = new Vector2(13, 5);
-        //else
-        //   rb.AddForce(new Vector2(-13,5), ForceMode2D.Impulse);
-        //rb.velocity = new Vector2(-13, 5);
-
 
     }
     public void HitComplete()
@@ -279,12 +217,7 @@ public class Character : MonoBehaviour
             else
                 this.transform.position -= new Vector3(obj.distance, 0, 0);
         }
-        // rb.velocity = new Vector2(13000, 5);
-        /*
-                rb.AddForce(new Vector2(500 * direction, 2), ForceMode2D.Force);
-                teleporting = 1;
-                if (!CheckRaycast(5f, Vector2.left, groundLayer))
-                  this.transform.position -= new Vector3(5, 0, 0);*/
+
 
 
     }

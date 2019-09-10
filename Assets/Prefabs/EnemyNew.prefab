@@ -4924,7 +4924,7 @@ GameObject:
   - component: {fileID: 5370949862833807845}
   - component: {fileID: 5370949862833807844}
   m_Layer: 15
-  m_Name: EnemyNew (4)
+  m_Name: EnemyNew
   m_TagString: Inamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4959,7 +4959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a1f6610105249479d1c4cfd3bad345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraEffect: {fileID: 0}
   health: 6
   maxhealth: 6
   speed: 4
