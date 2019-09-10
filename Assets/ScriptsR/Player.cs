@@ -27,6 +27,7 @@ public class Player : Character
     public override void Start()
     {
         base.Start();
+        ScoreScript.scoreValue = 0;
         TeleportBar = GetComponentsInChildren<Image>();
         teleportBarTime = teleportCooldown;
             
@@ -40,6 +41,7 @@ public class Player : Character
         TeleportBar[3].fillAmount = teleportBarTime / teleportCooldown;
         if (animator.GetBool("Hurt"))
         {
+            cameraEffect.Shake(100, 1);
             GamePad.SetVibration(0, 2f, 2f);
             StartCoroutine(timerVibrate());
         }
@@ -96,7 +98,7 @@ public class Player : Character
             
             Attack();
         }
-        if (Input.GetMouseButtonDown(1))
+       /* if (Input.GetMouseButtonDown(1))
         {
           //  Debug.Log("da ba");
             //Rigidbody2D rangedBullet;
@@ -109,7 +111,7 @@ public class Player : Character
 
 
 
-        }
+        } To do ranged attack*/
         /*   if (Input.GetButtonDown("Special Attack"))
            {
                if (Input.GetButtonUp("Special Attack") )
@@ -136,7 +138,11 @@ public class Player : Character
         {
             GamePad.SetVibration(0, 0f, 0f);
             Debug.Log("da");
-            SceneManager.LoadScene("DeathMenu");
+            Scene scene = SceneManager.GetActiveScene();
+            if (scene.name == "EndlessMode")
+                SceneManager.LoadScene("DeathMenuNorma");
+            else
+                SceneManager.LoadScene("DeathMenu");
 
         }
     }

@@ -7,6 +7,7 @@ using XInputDotNetPure;
 
 public class Character : MonoBehaviour
 {
+   // public CameraEffects cameraEffect;
     public float health;
     public float maxhealth;
     public int speed;
@@ -220,6 +221,7 @@ public class Character : MonoBehaviour
     {
         if (health <= 0)
         {
+            ScoreScript.scoreValue += 100;
             deathParticles.gameObject.SetActive(true);
             deathParticles.Emit(10);
             deathParticles.transform.parent = transform.parent;

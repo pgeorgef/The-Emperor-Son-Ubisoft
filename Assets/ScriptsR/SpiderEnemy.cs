@@ -15,6 +15,7 @@ public class SpiderEnemy : Enemy
         if (health <= 0)
         {
             animator.SetTrigger("Death");
+            ScoreScript.scoreValue += 500;
 
         }
     }

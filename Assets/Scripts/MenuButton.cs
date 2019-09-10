@@ -16,7 +16,7 @@ public class MenuButton : MonoBehaviour
 		if(menuButtonController.index == thisIndex)
 		{
 			animator.SetBool ("selected", true);
-            if (Input.GetButtonDown("Fire1")){
+            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Submit")){
 				animator.SetBool ("pressed", true);
 					StartCoroutine(Coroutine());
 					if(thisIndex == 0){
